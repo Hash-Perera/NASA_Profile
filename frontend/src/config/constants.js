@@ -1,1 +1,1 @@
-export const Backend_URL = "http://localhost:8000/api/v1";
+export const Backend_URL = "https://nasaprofile-production.up.railway.app";
