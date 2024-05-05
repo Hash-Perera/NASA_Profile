@@ -1,0 +1,10 @@
+.headerFonts {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffff !important;
+}
+
+.headerBackground {
+  background-color: #03045e !important;
+  color: #ffff !important;
+}
