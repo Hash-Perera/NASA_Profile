@@ -52,3 +52,23 @@ exports.login = async (req, res) => {
     throw error;
   }
 };
+
+exports.addFavourite = async (req, res) => {
+  const user = await User.findOneAndUpdate(
+    { _id: req.user },
+    { $push: { faveImages: req.body.imageUrl } },
+    { new: true }
+  );
+
+  return res.json({
+    message: "Added to favourites",
+  });
+};
+
+exports.getFavourites = async (req, res) => {
+  const user = await User.findOne({ _id: req.user });
+  return res.json({
+    message: "Favourites",
+    data: user.faveImages,
+  });
+};

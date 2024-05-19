@@ -25,6 +25,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+
+  faveImages: {
+    type: [String],
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

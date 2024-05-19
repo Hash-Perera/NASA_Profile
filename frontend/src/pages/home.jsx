@@ -3,6 +3,7 @@ import "../css/home.css";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import LoginIcon from "@mui/icons-material/Login";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Stack from "@mui/material/Stack";
 import Astro_1 from "../assets/images/astro_1.png";
 import { useNavigate } from "react-router-dom";
@@ -52,7 +53,7 @@ function Home() {
                     <Button
                       color="secondary"
                       variant="outlined"
-                      startIcon={<DeleteIcon />}
+                      startIcon={<ExitToAppIcon />}
                       onClick={() => Navigate("/signup")}
                     >
                       SIGNUP
@@ -112,10 +113,6 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="row animBody">
-          <p>Hello</p>
         </div>
       </div>
     </>

@@ -93,16 +93,29 @@ function Dashboard() {
             Astronomy Photo of The Day
           </Typography>
           <Grid container spacing={2} sx={{ padding: "20px" }}>
-            <Grid item xs={12} sm={8}>
+            <Grid item lg={8} md={8} xs={12} sm={12}>
               <Card>
-                <CardMedia
-                  sx={{ height: "60vh" }}
-                  image={marsImages.url}
-                  title="green iguana"
-                />
+                {marsImages?.media_type === "video" ? (
+                  <div style={{ height: "60vh" }}>
+                    <iframe
+                      src={marsImages.url}
+                      title="video"
+                      width="100%"
+                      height="100%"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                ) : (
+                  <CardMedia
+                    component="img"
+                    sx={{ height: "60vh" }}
+                    image={marsImages.url}
+                    title="green iguana"
+                  />
+                )}
               </Card>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item lg={4} md={4} xs={12} sm={12}>
               <Card>
                 <CardContent sx={{ height: "60vh", overflowY: "scroll" }}>
                   <Typography variant="h6">{marsImages?.title}</Typography>

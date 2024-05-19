@@ -56,6 +56,18 @@ export default function AppDrawer({ isOpen, toggleDrawer }) {
             <ListItemText primary="Earth Imagery" />
           </ListItemButton>
         </ListItem>
+        <ListItem key="Favourites" disablePadding>
+          <ListItemButton
+            onClick={() => {
+              Navigate("/favourites");
+            }}
+          >
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Favourites" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );

@@ -41,6 +41,29 @@ const getImages = async (page, setMarsImages, setLoading, date) => {
   });
 };
 
+//! Save image function
+const saveImages = async (imageUrl) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  console.log("this is image URL");
+  console.log(imageUrl);
+
+  const requestBody = {
+    imageUrl: imageUrl,
+  };
+
+  axios
+    .post(`${Backend_URL}/auth/addFavourite`, requestBody, config)
+    .then((res) => {
+      console.log(res.data);
+      alert("Image added to favourites successfully!");
+    });
+};
+
 function MarsRover() {
   const Navigate = useNavigate();
 
@@ -151,11 +174,11 @@ function MarsRover() {
           <Grid
             container
             spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl: 12 }}
+            columns={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
             padding={5}
           >
             {marsImages.map((item, index) => (
-              <Grid item xs={6} sm={6} md={4} lg={3} xl={3} key={index}>
+              <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={index}>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
                     sx={{ height: 140 }}
@@ -184,12 +207,22 @@ function MarsRover() {
                   </CardContent>
                   <CardActions>
                     <Button
+                      variant="contained"
+                      color="secondary"
                       size="small"
                       onClick={() => {
                         detailView(index);
                       }}
                     >
                       View More
+                    </Button>
+                    <Button
+                      size="small"
+                      onClick={() => {
+                        saveImages(item.img_src);
+                      }}
+                    >
+                      Save
                     </Button>
                   </CardActions>
                 </Card>

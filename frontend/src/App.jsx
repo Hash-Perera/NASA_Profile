@@ -8,6 +8,7 @@ import MarsRover from "./pages/mars-rover";
 import { useEffect, useState } from "react";
 import EarthImagery from "./pages/earth-imagery";
 import DetailView from "./pages/detail.view";
+import Favourites from "./pages/favourites";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -35,6 +36,7 @@ function App() {
             <Route path="/marsrover" element={<MarsRover />} />
             <Route path="/earth" element={<EarthImagery />} />
             <Route path="/detail" element={<DetailView />} />
+            <Route path="/favourites" element={<Favourites />} />
           </Routes>
         </BrowserRouter>
       )}
